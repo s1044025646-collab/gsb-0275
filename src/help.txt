@@ -1,0 +1,17 @@
+lcg —— 线性同余随机流跳步与子序列实验 CLI
+
+服务管理：
+  lcg serve [--port N]        启动本地 HTTP 服务（默认自动选空闲端口）
+  lcg demo                    自动启动临时服务并运行完整演示
+
+流操作（需服务运行；自动读取 data/port.json，也可用 --base 或 LCG_BASE）：
+  lcg create  --m M --a A --c C --seed SEED
+  lcg get     <id>
+  lcg generate <id> --count N --expected-version V
+  lcg jump-preview <id> --k K              纯预览，不写状态
+  lcg jump    <id> --k K --expected-version V
+  lcg subseq  <id> --r R --d D             子序列取原序列位置 R,R+D,R+2D,...
+  lcg ops     <id> [--limit N] [--offset N]
+
+所有整数参数均为十进制字符串（BigInt，可远超 2^53）。
+仅用于可复现模拟与算法教学，非密码学随机数。

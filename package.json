@@ -1,0 +1,25 @@
+{
+  "name": "lcg-stream-lab",
+  "version": "1.0.0",
+  "description": "离线确定性线性同余随机流跳步与子序列复现后端（仅 API 与 CLI）",
+  "type": "module",
+  "bin": {
+    "lcg": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run build && node --disable-warning=ExperimentalWarning --test test/math.test.ts test/service.test.ts test/api.test.ts",
+    "start": "node --disable-warning=ExperimentalWarning dist/server.js",
+    "dev": "node --disable-warning=ExperimentalWarning src/server.ts",
+    "demo": "node --disable-warning=ExperimentalWarning dist/cli.js demo",
+    "demo:dev": "node --disable-warning=ExperimentalWarning src/cli.ts demo",
+    "smoke": "npm run build && node smoke.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  }
+}
